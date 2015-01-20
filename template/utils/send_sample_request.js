@@ -49,7 +49,15 @@ define([
             var key = $(element).data("sample-request-param-name");
             var value = element.value;
             if (value.length > 0) {
-              param[key] = $.type(value) === "string" ? escapeHtml(value) : value;
+              if ($.isNumeric(value)) {
+                if (Math.floor(value) == value && $.isNumeric(value)) { // got an integer
+                  param[key] = parseInt(value);
+                } else { // got a float
+                  param[key] = parseFloat(value);
+                }
+              } else {
+                param[key] = $.type(value) === "string" ? escapeHtml(value) : value;
+              }
             }
           });
       });
