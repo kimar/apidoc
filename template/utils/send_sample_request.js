@@ -91,6 +91,20 @@ define([
         });
       }
 
+      function paramToQueryParms(param) {
+        var p = 0,
+            queryParms = "";
+        for (var k in param) {
+          if (p === 0) {
+            queryParms += "?" + k + "=" + param[k];
+          } else {
+            queryParms += "&" + k + "=" + param[k];
+          }
+          p++;
+        }
+        return queryParms;
+      }
+
       function displaySuccess(data) {
           var jsonResponse;
           try {
