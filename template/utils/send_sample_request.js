@@ -48,7 +48,9 @@ define([
           $root.find("[data-sample-request-param-group=\"" + group + "\"]").each(function(i, element) {
             var key = $(element).data("sample-request-param-name");
             var value = element.value;
-            param[key] = $.type(value) === "string" ? escapeHtml(value) : value;
+            if (value.length > 0) {
+              param[key] = $.type(value) === "string" ? escapeHtml(value) : value;
+            }
           });
       });
 
