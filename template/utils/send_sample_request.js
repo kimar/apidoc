@@ -73,7 +73,7 @@ define([
         $.ajax({
             url: url + paramToQueryParms(param),
             dataType: "text",
-            contentType: "text/plain",
+            contentType: "application/json",
             type: type.toUpperCase(),
             success: displaySuccess,
             error: displayError
