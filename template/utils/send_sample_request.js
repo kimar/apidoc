@@ -72,7 +72,7 @@ define([
       if (type === "get") {
         $.ajax({
             url: url + paramToQueryParms(param),
-            dataType: "text",
+            dataType: "json",
             contentType: "application/json",
             type: type.toUpperCase(),
             success: displaySuccess,
