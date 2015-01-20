@@ -96,9 +96,13 @@ define([
             queryParms = "";
         for (var k in param) {
           if (p === 0) {
-            queryParms += "?" + k + "=" + param[k];
+            if (param[k].length > 0) {
+              queryParms += "?" + k + "=" + param[k];
+            }
           } else {
-            queryParms += "&" + k + "=" + param[k];
+            if (param[k].length > 0) {
+              queryParms += "&" + k + "=" + param[k];
+            }
           }
           p++;
         }
